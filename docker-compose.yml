@@ -1,0 +1,9 @@
+services:
+  waved:
+    build: ./ui
+    image: waved
+  wave_app:
+    build: ./ui/wave_app
+    image: wave_app
+  # api:
+  #   build: ./api_service

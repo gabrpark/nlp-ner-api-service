@@ -2,18 +2,16 @@ from h2o_wave import main, app, Q, ui
 import requests
 import json
 
-URL = "http://127.0.0.1:8000"
-
-@app('/main')
+@app('/wave_app')
 async def serve(q: Q):
     if q.args.show_inputs:
         payload = q.args.textbox
-        URL_param = f"http://127.0.0.1:8000/?input_text={payload}"
-        res = requests.post(URL_param)
-        data = res.text
+        URL_param = f"http://127.0.0.1:8000/?input_text={payload}" #api endpoint + parameter
+        res = requests.post(URL_param) # Send the input text to the api then receive the NER analysis
+        data = res.text # Take the content of the response from the api
         parse_json = json.loads(data)
         q.page['textbox'].items = [
-            ui.text(f'Results={parse_json}'),
+            ui.text(f'Results={parse_json}'), # Display the NER analysis result
             ui.button(name='show_form', label='Back', primary=True),
         ]
     else:
