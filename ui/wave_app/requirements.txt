@@ -1,12 +1,2 @@
-pygments
-Faker
-numpy
-pandas
-bokeh
-matplotlib
-plotly
-altair
-vega-datasets
-scikit-learn
-h2o_wave[ml]
+h2o-wave
 requests

@@ -5,5 +5,10 @@ services:
   wave_app:
     build: ./ui/wave_app
     image: wave_app
+    links:
+      - waved
+    depends_on:
+      - waved
   # api:
   #   build: ./api_service
+  #   image: api_service
